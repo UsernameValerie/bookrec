@@ -40,12 +40,12 @@ There are 110762 missing values for Age, and 2-3 missing values for some other v
 
 ## Methodology
 
-## Background Information
+### Background Information
 
 There are two types of recommendation systems:
 
 - Content-based systems, which would recommend books based on the books the user liked in the past
-- Collaborative-based systems, which recommend books based on what similar users liked (matching users with similar interests and profiles)
+- Collaborative-based systems, which recommend books based on what similar users liked
 
 We focused on collaborative-based systems to leverage our Users and Ratings datasets to the fullest extent.
 

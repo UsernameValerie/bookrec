@@ -161,6 +161,17 @@ Contains the book rating information. Ratings (Book-Rating) are either explicit,
 </section>
 <section id="methodology" class="level2">
 <h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
+<section id="background-information" class="level3">
+<h3 class="anchored" data-anchor-id="background-information">Background Information</h3>
+<p>There are two types of recommendation systems:</p>
+<ul>
+<li>Content-based systems, which would recommend books based on the books the user liked in the past</li>
+<li>Collaborative-based systems, which recommend books based on what similar users liked</li>
+</ul>
+<p>We focused on collaborative-based systems to leverage our Users and Ratings datasets to the fullest extent.</p>
+<p>Our models use cosine similarity as a metric for the distance between vectors. The formula is <span class="math inline">\(\cos(\theta)=\frac{A\cdot B}{\vert\vert A \vert\vert \: \vert\vert B \vert\vert}\)</span>. This helps us judge the similarities between users.</p>
+<p>We also used a k-Nearest Neighbors, which identifies books that are most similar to a given title based on patterns in user ratings, and recommends them by finding the closest matches using cosine similarity in a high-dimensional rating space.</p>
+</section>
 <section id="project-steps" class="level3">
 <h3 class="anchored" data-anchor-id="project-steps">Project Steps</h3>
 <p>In this project, we began by loading the Books, Ratings, and Users datasets. Then we clean the data: dropping lacking metadata and filtering out users with fewer than 200 ratings, as well as books rated by fewer than 100 users. We then do the exploratory data analysis, plotting the distribution of ratings, the relationship between the number of ratings per user and their average rating, and visualizing the age distribution for users to identify key demographic trends. Next, we have three collaborative filtering methods:</p>
@@ -395,7 +406,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>plt.xticks(<span class="bu">range</span>(<span class="dv">10</span>, <span class="dv">101</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>([&lt;matplotlib.axis.XTick object at 0x1759ca780&gt;, &lt;matplotlib.axis.XTick object at 0x1759777a0&gt;, &lt;matplotlib.axis.XTick object at 0x179c2e3c0&gt;, &lt;matplotlib.axis.XTick object at 0x179c2e000&gt;, &lt;matplotlib.axis.XTick object at 0x179c2cd10&gt;, &lt;matplotlib.axis.XTick object at 0x179c2e720&gt;, &lt;matplotlib.axis.XTick object at 0x179c2fec0&gt;, &lt;matplotlib.axis.XTick object at 0x1758ee4e0&gt;, &lt;matplotlib.axis.XTick object at 0x179c2cfe0&gt;, &lt;matplotlib.axis.XTick object at 0x179c409b0&gt;], [Text(10, 0, '10'), Text(20, 0, '20'), Text(30, 0, '30'), Text(40, 0, '40'), Text(50, 0, '50'), Text(60, 0, '60'), Text(70, 0, '70'), Text(80, 0, '80'), Text(90, 0, '90'), Text(100, 0, '100')])</code></pre>
+<pre><code>([&lt;matplotlib.axis.XTick object at 0x30a3c5b80&gt;, &lt;matplotlib.axis.XTick object at 0x3063a2e10&gt;, &lt;matplotlib.axis.XTick object at 0x30631bb00&gt;, &lt;matplotlib.axis.XTick object at 0x30a532f00&gt;, &lt;matplotlib.axis.XTick object at 0x30a531670&gt;, &lt;matplotlib.axis.XTick object at 0x30a533800&gt;, &lt;matplotlib.axis.XTick object at 0x30a533560&gt;, &lt;matplotlib.axis.XTick object at 0x30a5486e0&gt;, &lt;matplotlib.axis.XTick object at 0x30a549070&gt;, &lt;matplotlib.axis.XTick object at 0x30a549af0&gt;], [Text(10, 0, '10'), Text(20, 0, '20'), Text(30, 0, '30'), Text(40, 0, '40'), Text(50, 0, '50'), Text(60, 0, '60'), Text(70, 0, '70'), Text(80, 0, '80'), Text(90, 0, '90'), Text(100, 0, '100')])</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribution of User Ages'</span>)</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Age'</span>)</span>
